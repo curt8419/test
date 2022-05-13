@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页钟表</title>
+    <script type="text/javascript">
+        function showTime (){
+            var w;
+            var now=new Date ();
+            var y=now.getFullYear();
+            var m=now.getMonth();
+            var d=now.getDate();
+            var day=now.getDay();
+            var h=now.getHours();
+            var minu=now.getMinutes();
+            var sec=now.getSeconds();
+            m= ( (m<10)?"0":" " )+m;
+            d= ( (d<10)?"0":" " )+d;
+            h= ( (h<10)?"0":" " )+h;
+            minu= ( (minu<10)?"0":" " )+minu;
+            sec=((sec<10)?"0":" ")+sec;
+            if (day==0)
+                w="天";
+            else if (day==1)
+                w="一";
+            else if (day==2)
+                w="二";
+             else if (day==2)
+                w="三";
+            else if (day==2)
+                w="四";
+            else if (day==2)
+                w="五";
+            else if (day==2)
+                w="六";
+                
+            // var str=" "+h+":"+minu+":"+sec+"\n"+y+"年"+m+"月"+d+"日"+"星期"+w+"\n";
+            var str=" "+h+":"+minu+":"+sec+"\n";
+            if(h<=8&&h>0)
+                 str+="早上好！";   
+             if(h<=12)   
+                 str+="中午好！" ;   
+            if(h<=18)    
+                str+="下午好！";    
+            else    
+                str+="晚上好！";  
+                
+            txt.innerText=str;
+            setTimeout("showTime ()",1000);
+            // window.opem('demo.html','','fullscreen=yes')
+        }
+        
+        // function setFontSize(el,size) {
+        //     const nodesobj = el.getElmentsByTagName("*")
+        //     const nodes = Object.values(nodesobj)
+        //     node.forEach(node => {
+        //         node.style.fontSize = size + "px"
+                
+        //     })
+        //     const el= document.getElementById("txt")
+        //     setFontSize(el,18)
+        // }
+    </script>
+    <style>
+        body {
+            
+            background-image:url('sss.jpg');
+
+        }
+        .center {
+            text-align: center;
+            font: 300% 'Microsoft yahei';
+            line-height: 1.5;
+            margin: 1em 0;
+            position: absolute;
+            width: 100%;
+            top: 20%;
+            transform: translate(0, -50%);
+            color: rgb(252, 252, 252);
+        }
+    </style>
+</head>
+<body onload="showTime ()">
+    <p id="txt" class="center"></p>
+</body>
+</html>
